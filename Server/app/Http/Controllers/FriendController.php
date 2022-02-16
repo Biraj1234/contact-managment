@@ -25,13 +25,6 @@ class FriendController extends Controller{
     public function store(Request $request)
     {
 
-
-        // $file=$request->file('profile_name');
-
-        // $fileName = time().'.'.$file->getClientOriginalName();
-        // $file->move(public_path('uploads'),$fileName);
-       
-
         $file = base64_encode(file_get_contents($request->file('profile_name')->path()));
         $request->request->add(['profile_picture'=>$file]);
 

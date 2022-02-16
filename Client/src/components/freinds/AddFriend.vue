@@ -28,6 +28,13 @@
         <img
           :src="image_preview"
           class="figure-img img-fluid rounded"
+          style="max-height: 1000px"
+        />
+      </div>
+      <div v-if="imagePreivew">
+        <img
+          :src="imagePreivew"
+          class="figure-img img-fluid rounded"
           style="max-height: 100px"
         />
       </div>
@@ -49,6 +56,7 @@ export default {
   data() {
     return {
       file: new FormData(),
+      imagePreivew: null,
       attachment: null,
       form: {
         name: "",
@@ -62,8 +70,13 @@ export default {
 
   methods: {
     imageSelected(e) {
-      let selectedFile = e.target.files[0];
-      this.attachment = selectedFile;
+      this.attachment = e.target.files[0];
+
+      let reader = new FileReader();
+      reader.readAsDataURL(this.attachment);
+      reader.onload = (e) => {
+        this.imagePreivew = e.target.result;
+      };
     },
 
     storeFriend() {

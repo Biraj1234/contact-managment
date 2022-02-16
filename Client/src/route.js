@@ -18,12 +18,22 @@ const router = createRouter({
     { path: "/friend/view/:id", name:"View", component: ViewFriend },
 
   ],
+  scrollBehavior(_, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 });
 
 router.beforeEach((toRoute, fromRoute, next) => {
   document.title = toRoute.name
+  
 
   next();
 })
+
+
 
 export default router;
