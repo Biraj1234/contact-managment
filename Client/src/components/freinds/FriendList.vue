@@ -12,8 +12,6 @@
 <script>
 export default {
   props: ["id", "name", "profile_picture"],
-  // inject: ["getFriends"],
-
   methods: {
     shortForm(name) {
       let words = name.split(" ");
