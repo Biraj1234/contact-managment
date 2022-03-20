@@ -24,23 +24,17 @@
         <label for="address">Profile Picture</label>
         <input type="file" @change="imageSelected" />
       </div>
-      <div v-if="image_preview">
-        <img
-          :src="image_preview"
-          class="figure-img img-fluid rounded"
-          style="max-height: 1000px"
-        />
-      </div>
       <div v-if="imagePreivew">
         <img
           :src="imagePreivew"
           class="figure-img img-fluid rounded"
-          style="max-height: 100px"
+          style="max-height: 1000px"
         />
       </div>
-
       <div class="save">
-        <button type="submit" class="btn btn-success">Add</button>
+        <button type="submit" class="btn btn-success" @click="addFriend">
+          Add
+        </button>
       </div>
     </form>
   </base-card>

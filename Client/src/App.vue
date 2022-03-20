@@ -8,7 +8,7 @@
       <div class="router">
         <div class="back">
           <button class="btn btn-success" @click="$router.go(-1)">
-            <i class="fas fa-arrow-left"></i>
+            <i class="far fa-user"></i>
           </button>
         </div>
         <router-view v-slot="{ Component }">
